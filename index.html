@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EasyCar.my - Find Your Perfect Used Car</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">EasyCar.my</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="Home.html">Home</a></li>
+                    <li><a href="BrowseCars.html">Browse Cars</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons" id="authButtons">
+                <a href="Login.html" class="btn btn-outline">Login</a>
+                <a href="SellYourCar.html" class="btn btn-primary">Sell Your Car</a>
+            </div>
+
+            <div class="profile-dropdown" id="userProfile" style="display: none;">
+            <div class="user-profile">
+            <div class="user-avatar" id="userAvatar">U</div>
+            <span class="user-name" id="userName">User</span>
+            </div>
+    <div class="dropdown-menu">
+        <a href="profile.html">My Profile</a>
+        <a href="my-listings.html">My Listings</a>
+        <a href="#" id="logoutBtn">Logout</a>
+    </div>
+</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Find Your Perfect Used Car</h1>
+                <p>Connect directly with sellers and find the best deals on quality used cars in your area.</p>
+            </div>
+            <div class="hero-image">
+                <div class="car-illustration">
+                    <div class="car-body"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="search-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="make">Make</label>
+                        <select id="make">
+                            <option value="">Select Make</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="honda">Honda</option>
+                            <option value="ford">Ford</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="nissan">Nissan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price Range</label>
+                        <select id="price">
+                            <option value="">Any Price</option>
+                            <option value="0-10000">Under $10,000</option>
+                            <option value="10000-20000">$10,000 - $20,000</option>
+                            <option value="20000-30000">$20,000 - $30,000</option>
+                            <option value="30000+">$30,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="City or ZIP code">
+                    </div>
+                </div>
+                <button class="btn-search" onclick="searchCars()">Search Cars</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section id="browse" class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Cars</h2>
+                <p class="section-subtitle">Browse our selection of quality used cars from private sellers</p>
+            </div>
+            <div class="cars-grid">
+                <div class="car-card">
+                    <div class="car-image">
+                        <div class="car-badge badge-featured">Featured</div>
+                        🚗
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">2018 Toyota Camry</h3>
+                                <p class="car-subtitle">SE Sedan</p>
+                            </div>
+                            <div class="car-price">$15,900</div>
+                        </div>
+                        <div class="car-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Mileage</span>
+                                <span class="detail-value">45,230 miles</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Transmission</span>
+                                <span class="detail-value">Automatic</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Fuel</span>
+                                <span class="detail-value">Gasoline</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Portland, OR</span>
+                            </div>
+                        </div>
+                        <div class="car-actions">
+                            <button class="btn-contact" onclick="contactSeller('Toyota Camry')">Contact Seller</button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        🚗
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">2017 Honda Accord</h3>
+                                <p class="car-subtitle">EX-L V6 Sedan</p>
+                            </div>
+                            <div class="car-price">$14,500</div>
+                        </div>
+                        <div class="car-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Mileage</span>
+                                <span class="detail-value">52,750 miles</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Transmission</span>
+                                <span class="detail-value">Automatic</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Fuel</span>
+                                <span class="detail-value">Gasoline</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Seattle, WA</span>
+                            </div>
+                        </div>
+                        <div class="car-actions">
+                            <button class="btn-contact" onclick="contactSeller('Honda Accord')">Contact Seller</button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-card">
+                    <div class="car-image">
+                        <div class="car-badge badge-new">New Listing</div>
+                        🚗
+                    </div>
+                    <div class="car-info">
+                        <div class="car-header">
+                            <div>
+                                <h3 class="car-title">2019 Ford Escape</h3>
+                                <p class="car-subtitle">SEL SUV</p>
+                            </div>
+                            <div class="car-price">$17,800</div>
+                        </div>
+                        <div class="car-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Mileage</span>
+                                <span class="detail-value">31,200 miles</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Transmission</span>
+                                <span class="detail-value">Automatic</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Fuel</span>
+                                <span class="detail-value">Gasoline</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Location</span>
+                                <span class="detail-value">Denver, CO</span>
+                            </div>
+                        </div>
+                        <div class="car-actions">
+                            <button class="btn-contact" onclick="contactSeller('Ford Escape')">Contact Seller</button>
+                            <button class="btn-favorite" onclick="toggleFavorite(this)">♡</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="BrowseCars.html" class="view-all-btn">View All Listings</a>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">How It Works</h2>
+                <p class="section-subtitle">Simple steps to buy or sell your used car</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-icon">+</div>
+                    <h3 class="step-title">Create a Listing</h3>
+                    <p class="step-description">Take photos of your car, add details, and set your price. Our platform makes it easy to create an attractive listing.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">👥</div>
+                    <h3 class="step-title">Connect with Buyers/Sellers</h3>
+                    <p class="step-description">Our messaging system allows you to communicate directly with interested buyers or sellers to answer questions.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">✓</div>
+                    <h3 class="step-title">Complete the Sale</h3>
+                    <p class="step-description">Meet safely, complete paperwork, and finalize the sale. We provide guidance on the transfer process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">What Our Users Say</h2>
+                <p class="section-subtitle">Real experiences from buyers and sellers</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I sold my Honda Civic in just 3 days! The platform made it so easy to create a listing and connect with serious buyers. Highly recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Michael T.</h4>
+                            <p>Seller</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Found my dream car at a great price! The detailed listings and direct communication with the seller made the process transparent and stress-free."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div class="author-info">
+                            <h4>Sarah K.</h4>
+                            <p>Buyer</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "Got $2,000 more for my car than dealer trade-in offers! The platform connected me with buyers who appreciated my well-maintained vehicle."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div class="author-info">
+                            <h4>James R.</h4>
+                            <p>Seller</p>
+                            <div class="rating">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">Ready to Buy or Sell Your Car?</h2>
+            <p class="cta-subtitle">Join thousands of satisfied users who have successfully bought or sold their vehicles on our platform.</p>
+            <div class="cta-buttons">
+                <a href="SellYourCar.html" class="btn-cta btn-cta-primary" onclick="getStarted()">Get Started Now</a>
+                <a href="HowItWorks.html" class="btn-cta btn-cta-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EasyCar.my. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function searchCars() {
+            const make = document.getElementById('make').value;
+            const price = document.getElementById('price').value;
+            const location = document.getElementById('location').value;
+            
+            // In a real implementation, this would redirect to search results
+            alert(`Searching for ${make} cars in ${location} with price range ${price}`);
+            window.location.href = `BrowseCars.html?make=${make}&price=${price}&location=${location}`;
+        }
+
+        function contactSeller(carModel) {
+            alert(`Connecting you with the seller of ${carModel}`);
+        }
+
+        function toggleFavorite(button) {
+            button.textContent = button.textContent === '♡' ? '♥' : '♡';
+        }
+
+        function getStarted() {
+            // This would redirect to registration or listing creation
+            console.log('Get started clicked');
+        }
+    </script>
+
+    
+
+    <script>
+    // Check auth state
+    auth.onAuthStateChanged((user) => {
+        const authButtons = document.getElementById('authButtons');
+        const userProfile = document.getElementById('userProfile');
+        
+        if (user) {
+            // User is signed in
+            authButtons.style.display = 'none';
+            userProfile.style.display = 'block';
+            
+            // Get user data from Firestore
+            db.collection('users').doc(user.uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        document.getElementById('userName').textContent = userData.name;
+                        document.getElementById('userAvatar').textContent = userData.name.charAt(0).toUpperCase();
+                    }
+                });
+        } else {
+            // User is signed out
+            authButtons.style.display = 'flex';
+            userProfile.style.display = 'none';
+        }
+    });
+
+    // Logout functionality
+    document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        auth.signOut()
+            .then(() => {
+                window.location.href = 'Home.html';
+            });
+    });
+</script>
+</body>
+</html>

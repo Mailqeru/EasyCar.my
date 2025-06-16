@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - EasyCar.my</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">EasyCar.my</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="BrowseCars.html">Browse Cars</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <a href="Login.html" class="btn btn-outline active">Login</a>
+                <a href="SellYourCar.html" class="btn btn-primary">Sell Your Car</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="how-it-works" style="padding-top: 6rem; min-height: 70vh;">
+        <div class="container" style="max-width: 500px;">
+            <div class="section-header">
+                <h2 class="section-title">Welcome Back</h2>
+                <p class="section-subtitle">Sign in to your EasyCar.my account</p>
+            </div>
+
+            <div class="search-form" style="margin-bottom: 2rem;">
+                <form id="loginForm">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="loginEmail">Email Address</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <div>
+                            <input type="checkbox" id="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#" style="color: #4A90E2;">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn-search">Sign In</button>
+                </form>
+            </div>
+
+            <div style="text-align: center;">
+                <p>Don't have an account? <a href="signup.html" style="color: #4A90E2;">Sign up</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EasyCar.my. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+   
+       
+<script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('login.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        if (data === 'success') {
+            alert('Login successful!');
+            window.location.href = 'Home.html';
+        } else {
+            alert(data);
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

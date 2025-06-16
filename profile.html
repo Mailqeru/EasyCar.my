@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - EasyCar.my</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">EasyCar.my</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="BrowseCars.html">Browse Cars</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons" id="authButtons">
+                <a href="Login.html" class="btn btn-outline">Login</a>
+                <a href="SellYourCar.html" class="btn btn-primary">Sell Your Car</a>
+            </div>
+            <div class="profile-dropdown" id="userProfile" style="display: none;">
+                <div class="user-profile">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span class="user-name" id="userName">User</span>
+                </div>
+                <div class="dropdown-menu">
+                    <a href="profile.html">My Profile</a>
+                    <a href="my-listings.html">My Listings</a>
+                    <a href="#" id="logoutBtn">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="how-it-works" style="padding-top: 6rem; min-height: 70vh;">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-header">
+                <h2 class="section-title">My Profile</h2>
+                <p class="section-subtitle">Manage your account information</p>
+            </div>
+
+            <div class="search-form" style="margin-bottom: 2rem;">
+                <form id="profileForm">
+                    <div class="form-grid" style="margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="profileName">Full Name</label>
+                            <input type="text" id="profileName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileEmail">Email Address</label>
+                            <input type="email" id="profileEmail" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="profilePhone">Phone Number</label>
+                            <input type="tel" id="profilePhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profileLocation">Location</label>
+                            <input type="text" id="profileLocation">
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-bottom: 1.5rem; color: #4A90E2;">Change Password</h3>
+                    <div class="form-grid" style="margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="currentPassword">Current Password</label>
+                            <input type="password" id="currentPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New Password</label>
+                            <input type="password" id="newPassword">
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmNewPassword">Confirm New Password</label>
+                            <input type="password" id="confirmNewPassword">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-search">Update Profile</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EasyCar.my. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+  
+
+<script>
+
+        // Load user data
+        auth.onAuthStateChanged((user) => {
+            if (!user) {
+                window.location.href = 'Login.html';
+                return;
+            }
+
+            // Load user profile data
+            db.collection('users').doc(user.uid).get()
+                .then((doc) => {
+                    if (doc.exists) {
+                        const userData = doc.data();
+                        document.getElementById('profileName').value = userData.name || '';
+                        document.getElementById('profileEmail').value = user.email;
+                        document.getElementById('profilePhone').value = userData.phone || '';
+                        document.getElementById('profileLocation').value = userData.location || '';
+                    }
+                });
+
+            // Update UI
+            document.getElementById('authButtons').style.display = 'none';
+            document.getElementById('userProfile').style.display = 'block';
+            document.getElementById('userName').textContent = user.displayName || 'User';
+            document.getElementById('userAvatar').textContent = (user.displayName || 'U').charAt(0).toUpperCase();
+        });
+
+        // Update profile
+        document.getElementById('profileForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const user = auth.currentUser;
+            if (!user) return;
+            
+            const name = document.getElementById('profileName').value;
+            const phone = document.getElementById('profilePhone').value;
+            const location = document.getElementById('profileLocation').value;
+            const currentPassword = document.getElementById('currentPassword').value;
+            const newPassword = document.getElementById('newPassword').value;
+            const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+            
+            // Update user data in Firestore
+            const updates = {
+                name: name,
+                phone: phone,
+                location: location
+            };
+            
+            db.collection('users').doc(user.uid).update(updates)
+                .then(() => {
+                    // Update password if provided
+                    if (newPassword && newPassword === confirmNewPassword) {
+                        return user.updatePassword(newPassword);
+                    }
+                })
+                .then(() => {
+                    alert('Profile updated successfully!');
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            auth.signOut()
+                .then(() => {
+                    window.location.href = 'Home.html';
+                });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Your Car - EasyCar.my</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">EasyCar.my</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="BrowseCars.html">Browse Cars</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <a href="Login.html" class="btn btn-outline">Login</a>
+                <a href="SellYourCar.html" class="btn btn-primary active">Sell Your Car</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="how-it-works" style="padding-top: 6rem; min-height: 70vh;">
+        <div class="container" style="max-width: 800px;">
+            <div class="section-header">
+                <h2 class="section-title">Sell Your Car with EasyCar.my</h2>
+                <p class="section-subtitle">Reach thousands of potential buyers and get the best price for your vehicle</p>
+            </div>
+
+            <div class="search-form" style="margin-bottom: 2rem;">
+                <form>
+                    <h3 style="margin-bottom: 1.5rem; color: #4A90E2;">Vehicle Information</h3>
+                    <div class="form-grid" style="margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="make">Make</label>
+                            <select id="make" required>
+                                <option value="">Select Make</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="honda">Honda</option>
+                                <option value="ford">Ford</option>
+                                <option value="chevrolet">Chevrolet</option>
+                                <option value="nissan">Nissan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="model">Model</label>
+                            <input type="text" id="model" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year</label>
+                            <select id="year" required>
+                                <option value="">Select Year</option>
+                                <!-- Years would be dynamically populated -->
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <!-- More options -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="mileage">Mileage</label>
+                            <input type="number" id="mileage" required>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 1.5rem; color: #4A90E2;">Vehicle Details</h3>
+                    <div class="form-grid" style="margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="transmission">Transmission</label>
+                            <select id="transmission" required>
+                                <option value="">Select</option>
+                                <option value="automatic">Automatic</option>
+                                <option value="manual">Manual</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fuel">Fuel Type</label>
+                            <select id="fuel" required>
+                                <option value="">Select</option>
+                                <option value="gasoline">Gasoline</option>
+                                <option value="diesel">Diesel</option>
+                                <option value="hybrid">Hybrid</option>
+                                <option value="electric">Electric</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="condition">Condition</label>
+                            <select id="condition" required>
+                                <option value="">Select</option>
+                                <option value="excellent">Excellent</option>
+                                <option value="good">Good</option>
+                                <option value="fair">Fair</option>
+                                <option value="poor">Poor</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Asking Price ($)</label>
+                            <input type="number" id="price" required>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-bottom: 1.5rem; color: #4A90E2;">Photos</h3>
+                    <div style="margin-bottom: 1.5rem;">
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                            <div style="height: 100px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                                <span>+ Add Photo</span>
+                            </div>
+                            <!-- More photo placeholders would be added here -->
+                        </div>
+                        <p style="font-size: 0.9rem; color: #666;">Upload at least 5 photos (max 12) including exterior, interior, and odometer.</p>
+                    </div>
+
+                    <h3 style="margin-bottom: 1.5rem; color: #4A90E2;">Description</h3>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <textarea id="description" rows="5" required placeholder="Describe your vehicle in detail including any features, modifications, service history, and reason for selling."></textarea>
+                    </div>
+
+                    <h3 style="margin-bottom: 1.5rem; color: #4A90E2;">Contact Information</h3>
+                    <div class="form-grid" style="margin-bottom: 1.5rem;">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" required placeholder="City, State">
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.5rem;">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#" style="color: #4A90E2;">Terms of Service</a> and <a href="#" style="color: #4A90E2;">Privacy Policy</a></label>
+                    </div>
+
+                    <button type="submit" class="btn-search">Create Listing</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EasyCar.my. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+</body>
+</html>

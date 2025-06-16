@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Cars - EasyCar.my</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">EasyCar.my</div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="BrowseCars.html" class="active">Browse Cars</a></li>
+                    <li><a href="HowItWorks.html">How It Works</a></li>
+                    <li><a href="About.html">About</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-buttons">
+                <a href="Login.html" class="btn btn-outline">Login</a>
+                <a href="SellYourCar.html" class="btn btn-primary">Sell Your Car</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="featured-section" style="padding-top: 6rem;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Browse All Cars</h2>
+                <p class="section-subtitle">Find your perfect used car from our extensive listings</p>
+            </div>
+            
+            <div class="search-form" style="margin-bottom: 3rem;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="make">Make</label>
+                        <select id="make">
+                            <option value="">All Makes</option>
+                            <option value="toyota">Toyota</option>
+                            <option value="honda">Honda</option>
+                            <option value="ford">Ford</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="nissan">Nissan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" placeholder="Any model">
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price Range</label>
+                        <select id="price">
+                            <option value="">Any Price</option>
+                            <option value="0-10000">Under $10,000</option>
+                            <option value="10000-20000">$10,000 - $20,000</option>
+                            <option value="20000-30000">$20,000 - $30,000</option>
+                            <option value="30000+">$30,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <select id="year">
+                            <option value="">Any Year</option>
+                            <option value="2020+">2020 or newer</option>
+                            <option value="2015-2019">2015-2019</option>
+                            <option value="2010-2014">2010-2014</option>
+                            <option value="2005-2009">2005-2009</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mileage">Mileage</label>
+                        <select id="mileage">
+                            <option value="">Any Mileage</option>
+                            <option value="0-50000">Under 50,000</option>
+                            <option value="50000-100000">50,000 - 100,000</option>
+                            <option value="100000+">Over 100,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" placeholder="City or ZIP code">
+                    </div>
+                </div>
+                <button class="btn-search" onclick="filterCars()">Filter Cars</button>
+            </div>
+
+            <div class="cars-grid">
+                <!-- Car listings would be dynamically loaded here -->
+                <!-- Example car cards from Home.html would be repeated here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn btn-primary" style="padding: 1rem 2rem;">Load More Cars</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 EasyCar.my. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function filterCars() {
+            // In a real implementation, this would filter the car listings
+            alert('Applying filters...');
+        }
+    </script>
+    
+</body>
+</html>
